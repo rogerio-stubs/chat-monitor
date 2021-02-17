@@ -1,0 +1,12 @@
+{
+    "manifest_version": 2,
+    "name": "Monitorador de chat",
+    "description": "Monitorando alterações no chat do Zendesk",
+    "version": "1.0",
+    "content_scripts": [    
+    { "run_at" :"document_end",
+    "matches": ["http://127.0.0.1:5500/index.html"],
+    "js": ["script.js"]
+    } ]
+}
+    
