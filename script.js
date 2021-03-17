@@ -1,13 +1,13 @@
 setInterval(() => { 
-  if(document.querySelector('.elemento')){
-    let chats = document.querySelector('.elemento');
+  if(document.querySelector('.ReactVirtualized__Grid__innerScrollContainer')){
+    let chats = document.querySelector('.ReactVirtualized__Grid__innerScrollContainer');
     mutationObserver.observe(chats, {
-      attributes: true,
+      // attributes: true,
       characterData: true,
       childList: true,
       subtree: true,
-      attributeOldValue: true,
-      characterDataOldValue: true
+      // attributeOldValue: true,
+      // characterDataOldValue: true
     });
   }
   else {
@@ -17,7 +17,9 @@ setInterval(() => {
 
 var mutationObserver = new MutationObserver(function(mutations) {
   mutations.forEach(function(mutation) {
-    let elemento = mutation.target.innerText;
+    let elemento = mutation.target;
+    // do jeito que está pode ser uma boa maneira de pegar as tags.
     console.log('elemento', elemento);
+    
   });
 });

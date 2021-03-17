@@ -5,7 +5,7 @@
     "version": "1.0",
     "content_scripts": [    
     { "run_at" :"document_idle",
-    "matches": ["http://127.0.0.1:5500/index.html"],
+    "matches": ["https://tecnospeed.zendesk.com/chat/agent*"],
     "js": ["script.js"]
     } ]
 }
