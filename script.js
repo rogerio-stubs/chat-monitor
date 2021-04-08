@@ -1,6 +1,6 @@
 setInterval(() => { 
-  if(document.querySelector('.ReactVirtualized__Grid__innerScrollContainer')){
-    let chats = document.querySelector('.ReactVirtualized__Grid__innerScrollContainer');
+  if(document.querySelector('.ReactVirtualized__Grid')){
+    let chats = document.querySelector('.ReactVirtualized__Grid');
     mutationObserver.observe(chats, {
       characterData: true,
       childList: true,
@@ -12,15 +12,20 @@ setInterval(() => {
   }
  }, 1000)
 
-let arrCustomers = [];
-var mutationObserver = new MutationObserver(function(mutations) {
-  mutations.forEach(function(mutation) {
+ var mutationObserver = new MutationObserver(function(mutations) {
+   mutations.forEach(function(mutation) {
+    let arrCustomers = [];
     let customers = mutation.target;
-    names = customers.querySelectorAll('.title___1ufWo');
-    for(let index = 0; index < names.length; index++) {
-      arrCustomers = null;
-      arrCustomers.push(names[index].querySelector('.rc-view-d7de1c43').innerText);
-      console.log(arrCustomers);
-  }
+    if ($(customers).hasClass('ReactVirtualized__Grid__innerScrollContainer')) {
+      console.log('object', customers)
+      let names = customers.querySelectorAll('.title___1ufWo');
+      console.log('names', names)
+      for(let index = 0; index < names.length; index++) {
+        console.log('for', names[index])
+        arrCustomers.push(names[index].querySelector('.rc-view-d7de1c43').innerText);
+      }
+      console.log('array customers', arrCustomers);
+      arrCustomers = [];
+    }
   });
 });
